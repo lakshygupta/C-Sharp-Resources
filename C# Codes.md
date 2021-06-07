@@ -85,9 +85,9 @@ Add as many lines of comments as you want
 
 # Scopes
 
-Block/Function Scoped
+Block/Function Scope
 
-Class Scoped 
+Class Scope
 ```c#
 using System;
 
@@ -152,7 +152,7 @@ We can create a function and pass parameters like this
 static void GreetPersons(string[] names) { }
 ```
 
-However, calling it would be a bit clumsy. In the shortest form, it would look like this:
+However, calling it would be a bit clumsy. In the shortest form, it would look like this
 
 ```c#
 GreetPersons(new string[] { "John", "Jane", "Tarzan" });
@@ -188,10 +188,10 @@ Another advantage of using the params approach, is that you are allowed to pass 
 | `double`    | 64 bit floating-point number | 3.14, 3.4e38|
 | `Float`     | Floating-point number     |   3.14, 3.4e38 |
 | `Decimal` | Decimal number (higher precision)      |   1037.196543 |
-| `Bool`    | Boolean  | true, False|
+| `Bool`    | Boolean  | true, false|
 | `String`  | String | "Hello World" |
 | `byte`  | 8-bit unsigned integer | 0 to 255 |
-| `char`  | 16-bit Unicode character | "A" |
+| `char`  | 16-bit Unicode character | 'A' |
 | `long`  | 64-bit signed integer type | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
 
 <br>
@@ -221,9 +221,9 @@ Another advantage of using the params approach, is that you are allowed to pass 
 | `()`  |Parenthesis. Groups values. | (i+5)
 | `()`    | Parenthesis. Passes parameters. | x=Add(i,5)
 | `[]`  | Brackets. Accesses values in arrays or collections. | name[3]
-| `!`    | Not. Reverses true or false. | if (!ready)|
-| `&&`     | Logical AND.     |  if (ready && clear) |
+| `!`    | Not. Reverses true to false or viceversa. | if (!ready)|
 | `||` | Logical OR.      |   if (ready || clear) |
+| `&&`     | Logical AND.     |  if (ready && clear) |
 
 <br>
 
@@ -236,11 +236,11 @@ Another advantage of using the params approach, is that you are allowed to pass 
 
 | Method     | Description          |Examples  |
 | ------------- |:-------------:| -----:|
-|AsInt(),<br> IsInt() |   Converts a string to an integer.   | ``` if (myString.IsInt())```<br>  ```{myInt=myString.AsInt();```|   
-|AsFloat(), IsFloat()| Converts a string to a floating-point number.|```if (myString.IsFloat())```<br>```{myFloat=myString.AsFloat();}```|
-|AsDecimal(), IsDecimal()| Converts a string to a decimal number..|```if (myString.IsDecimal())```<br>```{myDec=myString.AsDecimal();}```|
-|AsDateTime(), IsDateTime()|Converts a string to an ASP.NET DateTime type.| ```myString="10/10/2012";```<br>``` myDate=myString.AsDateTime();```|
-|AsBool(),<br> IsBool()|Converts a string to a Boolean..| ```myString="True";```<br> ```myBool=myString.AsBool();```|
+|AsInt(),<br> IsInt() |   Converts a string to an integer.<br> Check whether string can convert to int   |```myInt=myString.AsInt();``` <br> ``` if (myString.IsInt())```|   
+|AsFloat(), IsFloat()| Converts a string to a floating-point number.<br> Checks whether string can convert to float |```myFloat=myString.AsFloat();}``` <br> ```if (myString.IsFloat())```|
+|AsDecimal(), IsDecimal()| Converts a string to a decimal number.<br> Check whether string can convert to decimal |```myDec=myString.AsDecimal();}``` <br> ```if (myString.IsDecimal())```|
+|AsDateTime(), IsDateTime()|Converts a string to an ASP.NET DateTime type.<br> Checks whether string can convert to datetime|``` myDate=myString.AsDateTime();``` <br>```if (myString.IsDateTime())```|
+|AsBool(),<br> IsBool()|Converts a string to a Boolean.<br> Checks whether string can convert to Bool| ```myBool=myString.AsBool();```<br>  ```if (myString.IsBool())```|
 |ToString()|Converts any data type to a string.| ```myInt=1234;```<br> ```myString=myInt.ToString();```|
 
 <br>
@@ -252,8 +252,11 @@ Another advantage of using the params approach, is that you are allowed to pass 
 ## Define Variables
 
 int i, j, k;
+
 char c, ch;
+
 float f, salary;
+
 double d;
 
 | Type     | Name          |
@@ -263,7 +266,7 @@ double d;
 |```float```|f, salary;|
 |```double```|d;|
 
-## Initialise Varaiable
+## Initialize Variables
 
 ```c#
 variable_name = value;
@@ -334,15 +337,15 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             // Declare a variable of type Car
-            Car car;
+            Car car1,car2;
 
             // Creates an new instance
-            car = new Car("Red");
+            car1 = new Car("Red");
 
             // New instance gives us method access
             Console.WriteLine(car.Describe());
 
-            car = new Car("Green");
+            car2 = new Car("Green");
             Console.WriteLine(car.Describe());
 
             Console.ReadLine();
@@ -406,6 +409,17 @@ public string Color
 
 ```
 
+```c#
+private string color;
+
+public string Color
+{
+    get;
+    set;
+}
+
+```
+
 > The ```get``` method should ```return``` the variable<br>
 > The ```set``` method should ```assign a value``` to it.
 
@@ -438,6 +452,7 @@ public string Color
 # Constructor
 
 ```c#
+// default Constructor
 public Car()
 {
 
@@ -489,20 +504,20 @@ class SillyMath
 
 <br>
 
-# Class Visability
+# Class Visibility
 
-| Visability       | Definition         | 
+| Visibility       | Definition         | 
 | ------------- |:-------------| 
 | public    | the member can be reached from anywhere. This is the least restrictive visibility. Enums and interfaces are, by default, publicly visible |
 | protected      | members can only be reached from within the same class, or from a class which inherits from this class.      |
-| internal | members can be reached from within the same project only.|
-| protected internal| the same as internal, except that classes which inherit from this class can reach its members; even from another project.      | 
-| private| can only be reached by members from the same class. This is the most restrictive visibility. Classes and structs are by default set to private visibility.      | 
+| internal | members can be reached from within the same assembly only.|
+| protected internal| member is accessible from the current assembly or from types that are derived from the containing class.     | 
+| private| can only be reached by members from the same class. This is the most restrictive visibility. Classes are by default set to private visibility.      | 
 
 
 > So for instance, if you have two classes: Class1 and Class2, private members from Class1 can only be used within Class1. You can't create a new instance of Class1 inside of Class2, and then expect to be able to use its private members.<br>
 <br>
-If Class2 inherits from Class1, then only non-private members can be reached from inside of Class2.
+> If Class2 inherits from Class1, then only non-private members can be reached from inside of Class2.<br>
 
 <br>
 
@@ -512,7 +527,7 @@ If Class2 inherits from Class1, then only non-private members can be reached fro
 
 # Inheritance
 
-* Is inheritance, the ability to create classes which inherits certain aspects from parent classes. 
+* Inheritance, the ability to create classes which inherits certain aspects from parent classes. 
 
 
 ```c#
@@ -532,7 +547,7 @@ public class Animal
     }
 }
 
-// Dog Inherits from Animal base classs
+// Dog Inherits from Animal base class
 public class Dog : Animal
 {
 
@@ -587,7 +602,7 @@ public class Dog : Animal
 
 # Base
 
-In C#, you are not allowed to override a member of a class unless it's marked as ```virtual```. If you want to, you can still access the inherited method, even when you override it, using the ```base keyword```.
+In C#, you are not allowed to override a member of a class unless it's marked as ```virtual```. <br>If you want to, you can still access the inherited method, even when you override it, using the ```base keyword```.
 
 ```c#
 public override void Greet()
@@ -625,7 +640,7 @@ abstract class FourLeggedAnimal
         }
     }
  // We can inherit from it !
-    class Dog : FourLeggedAnimal
+public class Dog : FourLeggedAnimal
     {
 
     }
@@ -648,8 +663,8 @@ abstract class FourLeggedAnimal
   abstract class FourLeggedAnimal
     {
         /* 
-           Define the abstract method definition
-           from within the abstract class
+           Declare the abstract method in 
+           abstract class.
         */
         public abstract string Describe();
     }
@@ -659,8 +674,7 @@ abstract class FourLeggedAnimal
     {
          /* 
             Override the abstract method definition
-            from within the sub class and add 
-            code block
+            within the sub class and add code block
         */
         public override string Describe()
         {
@@ -893,23 +907,23 @@ double salary = balance[9];
 ### ForLoop
 
 ```c#
- int []  n = new int[10]; /* n is an array of 10 integers */
+         int []  n = new int[10]; /* n is an array of 10 integers */
          int i;
 
          /* initialize elements of array n */
-         for ( i = 0; i < 10; i++ ) {
-            n[ i ] = i + 100;
+         for (i = 0; i < 10; i++) {
+            n[i] = i + 100;
          }
 ```
 
 ### ForEach
 
 ```c#
- int []  n = new int[10]; /* n is an array of 10 integers */
+         int []  n = new int[10]; /* n is an array of 10 integers */
          int i;
 
           /* output each array element's value */
-         foreach (int j in n ) {
+         foreach (int j in n) {
             int i = j-100;
             Console.WriteLine("{0}", j);
          }
@@ -1000,11 +1014,11 @@ listOfNames.Remove("Joe Doe");
 
 ## Others
 
-| Tables        | Are           | 
+| Tables        | Way of Use           | 
 | ------------- |:-------------| 
 | RemoveAt()     | listOfNames.RemoveAt(0); | 
-| using count      | listOfNames.RemoveAt(listOfNames.Count - 1);    | 
-| RemoveAll()| are neat      |   
+| Count      | listOfNames.RemoveAt(listOfNames.Count - 1);    | 
+| RemoveAll()| listofNames.RemoveAll(isEven);      |   
 | Sort()| listOfNames.Sort();|
 
 ## Iterate over lists with:
@@ -1025,7 +1039,7 @@ listOfNames.Remove("Joe Doe");
 * Dictionary<TKey, TValue>
 
 
-## Difference between Lists vr Dictionaries
+## Difference between Lists vs Dictionaries
 
 ### Lists 
 
@@ -1126,24 +1140,24 @@ foreach (KeyValuePair<string, int> user in users.OrderBy(user => user.Value))
 ## Common String Methods
 
 **Returns** : <br>
-```0``` = true <br>
-```1``` = false
+```1``` = true <br>
+```0``` = false
 
 | Method  	|  Code 	| Comments 	| 
 |---	      |---	      |---   |
 |  ```Clone()```	| firstname.Clone()| Make clone of string. |
-|  ```CompareTo()```	| firstname.CompareTo(lastname) | Compare two strings and returns integer value as output. It returns 0 for true and 1 for false. |
+|  ```CompareTo()```	| firstname.CompareTo(lastname) | Compare two strings and returns integer value as output. It returns 1 for true and 0 for false. |
 |  ```Contains()```	| firstname.Contains("ven") | The C# Contains method checks whether specified character or string is exists or not in the string value.|
 |  ```EndsWith()```	|  firstname.EndsWith("n")| This EndsWith Method checks whether specified character is the last character of string or not. |
 |  ```Equals()```	|  firstname.Equals(lastname) | The Equals Method in C# compares two string and returns Boolean value as output.|
 |  ```GetHashCode()```|   firstname.GetHashCode() | This method returns HashValue of specified string. |
-|  ```GetType()```	|   firstname.GetType() | t returns the System.Type of current instance. |
+|  ```GetType()```	|   firstname.GetType() | This returns the System.Type of current instance. |
 |  ```IndexOf()```	|  firstname.IndexOf("e") | 	Returns the index position of first occurrence of specified character. |
 |  ```ToLower()```	|   firstname.ToLower() | Converts String into lower case based on rules of the current culture. |
 |  ```ToUpper()```|   firstname.ToUper() | Converts String into upper case based on rules of the current culture. |
 |  ```Insert()```|  firstname.Insert(0, "Hello") | Insert the string or character in the string at the specified position. |
 | ```IsNormalized()```	|  firstname.IsNormalized() | This method checks whether this string is in Unicode normalization form C. |
-|  ```LastIndexOf()```	| firstname.LastIndexOf("e") | This method checks whether this string is in Unicode normalization form C. |
+|  ```LastIndexOf()```	| firstname.LastIndexOf("e") | Returns the position of the last occurrence of specified character. |
 |  ```Length```	| firstname.Length | It is a string property that returns length of string. |
 |  ```Remove()```	| firstname.Remove(5) | This method deletes all the characters from beginning to specified index position. |
 |  ```Replace()```	| firstname.Replace('e','i') |  This method replaces the character.|
