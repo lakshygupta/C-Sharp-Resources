@@ -19,7 +19,7 @@
 [Operators](#Operators)<br>
 [Convert Data Types](#Convert-Data-Types)<br>
 [Define Variables](#Define-Variables)<br>
-[Initialise Varaiable](#Initialise-Varaiable)<br>
+[Initialise Varaiable](#Initialize-Varaiables)<br>
 [Constants](#Constants)<br>
 [Casting User input](#Casting-User-input)<br>
 [Classes](#Classes)<br>
@@ -34,11 +34,10 @@
 [Abstract methods](#Abstract-methods)<br>
 [Interfaces](#Interfaces)<br>
 [Partial Classes](#Partial-Classes)<br>
-[Collections](#Collections)<br>
 [Arrays](#Arrays)<br>
-[Multidimensional Arrays](#Multidimensional-Arrays)<br>
 [ForLoop](#ForLoop)<br>
 [ForEach](#ForEach)<br>
+[Multidimensional Arrays](#Multidimensional-Arrays)<br>
 [Lists](#Lists)<br>
 [Dictionaries](#Dictionaries)<br>
 [Strings](#Strings)<br>
@@ -148,6 +147,11 @@ public int AddNumbers(int number1, int number2)
     return result;
 }
 ```
+<br>
+
+[back to top](#Index)<br>
+
+<br>
 
 ## Params Keyword
 
@@ -182,7 +186,6 @@ Another advantage of using the params approach, is that you are allowed to pass 
 [back to top](#Index)<br>
 
 <br>
-
 
 ## DataTypes 
 
@@ -227,7 +230,6 @@ Another advantage of using the params approach, is that you are allowed to pass 
 | `()`    | Parenthesis. Passes parameters. | x=Add(i,5)
 | `[]`  | Brackets. Accesses values in arrays or collections. | name[3]
 | `!`    | Not. Reverses true to false or viceversa. | if (!ready)|
-| `||` | Logical OR.      |   if (ready || clear) |
 | `&&`     | Logical AND.     |  if (ready && clear) |
 
 <br>
@@ -241,12 +243,12 @@ Another advantage of using the params approach, is that you are allowed to pass 
 
 | Method     | Description          |Examples  |
 | ------------- |:-------------:| -----:|
-|AsInt(),<br> IsInt() |   Converts a string to an integer.<br> Check whether string can convert to int   |```myInt=myString.AsInt();``` <br> ``` if (myString.IsInt())```|   
-|AsFloat(), IsFloat()| Converts a string to a floating-point number.<br> Checks whether string can convert to float |```myFloat=myString.AsFloat();}``` <br> ```if (myString.IsFloat())```|
-|AsDecimal(), IsDecimal()| Converts a string to a decimal number.<br> Check whether string can convert to decimal |```myDec=myString.AsDecimal();}``` <br> ```if (myString.IsDecimal())```|
-|AsDateTime(), IsDateTime()|Converts a string to an ASP.NET DateTime type.<br> Checks whether string can convert to datetime|``` myDate=myString.AsDateTime();``` <br>```if (myString.IsDateTime())```|
-|AsBool(),<br> IsBool()|Converts a string to a Boolean.<br> Checks whether string can convert to Bool| ```myBool=myString.AsBool();```<br>  ```if (myString.IsBool())```|
-|ToString()|Converts any data type to a string.| ```myInt=1234;```<br> ```myString=myInt.ToString();```|
+|AsInt(),<br> IsInt() |   Converts a string to an integer<br> Check whether string can convert to int   |```myInt=myString.AsInt();``` <br> ``` if (myString.IsInt())```|   
+|AsFloat(),<br> IsFloat()| Converts a string to a floating-point number<br> Checks whether string can convert to float |```myFloat=myString.AsFloat();}``` <br> ```if (myString.IsFloat())```|
+|AsDecimal(),<br> IsDecimal()| Converts a string to a decimal number<br> Check whether string can convert to decimal |```myDec=myString.AsDecimal();}``` <br> ```if (myString.IsDecimal())```|
+|AsDateTime(),<br> IsDateTime()|Converts a string to an ASP.NET DateTime type<br> Checks whether string can convert to datetime|``` myDate=myString.AsDateTime();``` <br>```if (myString.IsDateTime())```|
+|AsBool(),<br> IsBool()|Converts a string to a Boolean<br> Checks whether string can convert to Bool| ```myBool=myString.AsBool();```<br>  ```if (myString.IsBool())```|
+|ToString()|Converts any data type to a string| ```myInt=1234;```<br> ```myString=myInt.ToString();```|
 
 <br>
 
@@ -271,6 +273,12 @@ double d;
 |```float```|f, salary;|
 |```double```|d;|
 
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
 ## Initialize Variables
 
 ```c#
@@ -285,6 +293,11 @@ byte z = 22;         /* initializes z. */
 double pi = 3.14159; /* declares an approximation of pi. */
 char x = 'x';        /* the variable x has the value 'x'. */
 ```
+<br>
+
+[back to top](#Index)<br>
+
+<br>
 
 ## Constants
 
@@ -329,7 +342,7 @@ int? num1 = null;
 
 * A Class is a group of related methods and variables.
 * On this object, you use the defined methods and variables.
-* You can create as many instances of your class as you want
+* You can create as many instances of your class as you want.
 
 
 ```c#
@@ -382,12 +395,12 @@ namespace ConsoleApplication1
 
 ```
 
-* new class called Car
+* new class called Car.
 * It defines a single variable, called color, which of course is used to tell the color of our car.
-* Our Car class defines a constructor
+* Our Car class defines a constructor.
 * It takes a parameter which allows us to initialize Car objects with a color.
-* The Describe() method allows us to get a nice message
-* Returns a string
+* The Describe() method allows us to get a nice message.
+* Returns a string.
 
 <br>
 
@@ -520,10 +533,8 @@ class SillyMath
 | private| can only be reached by members from the same class. This is the most restrictive visibility. Classes are by default set to private visibility.      | 
 
 
-> So for instance, if you have two classes: Class1 and Class2, private members from Class1 can only be used within Class1. You can't create a new instance of Class1 inside of Class2, and then expect to be able to use its private members.<br>
-<br>
-> If Class2 inherits from Class1, then only non-private members can be reached from inside of Class2.<br>
-
+> So for instance, if you have two classes: Class1 and Class2, private members from Class1 can only be used within Class1. You can't create a new instance of Class1 inside of Class2, and then expect to be able to use its private members.
+If Class2 inherits from Class1, then only non-private members can be reached from inside of Class2.<br>
 <br>
 
 [back to top](#Index)<br>
@@ -843,9 +854,6 @@ namespace PartialClasses
 
 <br>
 
-# Collections
-<br>
-
 ## Arrays
 
 1. An array stores a fixed-size sequential collection of elements of the same type. 
@@ -923,7 +931,6 @@ double salary = balance[9];
  //Copy elements from one array to another
  Array.Copy(scr, target, numOfElements);
 ```
-
 <br>
 
 [back to top](#Index)<br>
@@ -941,6 +948,11 @@ double salary = balance[9];
             n[i] = i + 100;
          }
 ```
+<br>
+
+[back to top](#Index)<br>
+
+<br>
 
 ### ForEach
 
@@ -1196,7 +1208,7 @@ foreach (KeyValuePair<string, int> user in users.OrderBy(user => user.Value))
 |  ```GetType()```	|   firstname.GetType() | This returns the System.Type of current instance. |
 |  ```IndexOf()```	|  firstname.IndexOf("e") | 	Returns the index position of first occurrence of specified character. |
 |  ```ToLower()```	|   firstname.ToLower() | Converts String into lower case based on rules of the current culture. |
-|  ```ToUpper()```|   firstname.ToUper() | Converts String into upper case based on rules of the current culture. |
+|  ```ToUpper()```|   firstname.ToUpper() | Converts String into upper case based on rules of the current culture. |
 |  ```Insert()```|  firstname.Insert(0, "Hello") | Insert the string or character in the string at the specified position. |
 | ```IsNormalized()```	|  firstname.IsNormalized() | This method checks whether this string is in Unicode normalization form C. |
 |  ```LastIndexOf()```	| firstname.LastIndexOf("e") | Returns the position of the last occurrence of specified character. |
@@ -1389,6 +1401,12 @@ using (var sr = File.OpenText(path))
                 }
 ```
 
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
 # Write File
 ```c#
 var path = @"C:\Users\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
@@ -1400,6 +1418,12 @@ var path = @"C:\Users\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
                 }
 
 ```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
 
 # Create File
 ```c#
