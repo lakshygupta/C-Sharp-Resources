@@ -19,7 +19,7 @@
 [Operators](#Operators)<br>
 [Convert Data Types](#Convert-Data-Types)<br>
 [Define Variables](#Define-Variables)<br>
-[Initialise Varaiable](#Initialize-Varaiables)<br>
+[Initialize Variables](#Initialize-Varaiables)<br>
 [Constants](#Constants)<br>
 [Casting User input](#Casting-User-input)<br>
 [Classes](#Classes)<br>
