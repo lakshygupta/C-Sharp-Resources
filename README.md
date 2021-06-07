@@ -53,12 +53,6 @@
 [Delegates](#Delegates)<br>
 [Events](#Events)<br>
 [Naming Conventions](#Naming Convetions)<br>
-[Type Conversion](#Type Conversion)<br>
-[Try Catch Finally](#Try Catch Finally)<br>
-[If Else](#If Else)<br>
-[Switch](#Switch)<br>
-[Jagged Arrays](#Jagged Arrays)<br>
-[Callback and Timer](#Callback and Timer)<br>
 
 ## Comments
 
