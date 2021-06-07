@@ -52,7 +52,7 @@
 [Anonymous Type](#Anonymous-Type)<br>
 [DateTime](#DateTime)<br>
 [Delegates](#Delegates)<br>
-
+[Events](#Events)<br>
 
 ## Comments
 
