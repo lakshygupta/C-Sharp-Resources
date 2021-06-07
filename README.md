@@ -52,7 +52,7 @@
 [DateTime](#DateTime)<br>
 [Delegates](#Delegates)<br>
 [Events](#Events)<br>
-[Naming Conventions](#Naming Conventions)<br>
+[Naming Conventions](#Naming-Conventions)<br>
 
 ## Comments
 
