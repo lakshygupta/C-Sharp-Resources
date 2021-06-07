@@ -36,11 +36,13 @@
 [Partial Classes](#Partial-Classes)<br>
 [Collections](#Collections)<br>
 [Arrays](#Arrays)<br>
+[Multidimensional Arrays](#Multidimensional-Arrays)<br>
 [ForLoop](#ForLoop)<br>
 [ForEach](#ForEach)<br>
 [Lists](#Lists)<br>
 [Dictionaries](#Dictionaries)<br>
 [Strings](#Strings)<br>
+[StringBuilder](#StringBuilder)<br>
 [Common String Methods](#Common-String-Methods)<br>
 [Structs or Structures](#Structs-or-Structures)<br>
 [Enums](#Enums)<br>
@@ -48,6 +50,8 @@
 [Write File](#Write-File)<br>
 [Create a File](#Create-File)<br>
 [Anonymous Type](#Anonymous-Type)<br>
+[DateTime](#DateTime)<br>
+[Delegates](#Delegates)<br>
 
 
 ## Comments
@@ -899,6 +903,27 @@ int[] score = marks;
 double salary = balance[9];
 ```
 
+### Array Operations
+
+```c#
+ //Sort ascending
+ Array.Sort(nameArray);
+
+ //Sort begins at element 6 and sorts 20 elements
+ Array.Sort(nameArray,6,20);
+
+ //Use 1 array as a key & sort 2 arrays
+ string[] values = {"Juan", "Victor", "Elena"};
+ string[] keys = {"Jimenez", "Martin", "Ortiz"};
+ Array.Sort(keys, values);
+
+ //Clear elements in array (array, first element, # elements)
+ Array.Clear(nameArray, 0, nameArray.Length);
+
+ //Copy elements from one array to another
+ Array.Copy(scr, target, numOfElements);
+```
+
 <br>
 
 [back to top](#Index)<br>
@@ -936,7 +961,23 @@ double salary = balance[9];
 
 <br>
 
+# Multidimensional Arrays
 
+```c#
+ int [,] matrix = new int [2,2]
+ matrix[0,0] = 1;
+ matrix[0,1] = 2;
+ matrix[1,0] = 3;
+ matrix[1,1] = 4;
+
+ int[,] predefinedMatrix = new int[2,2] { { 1, 2 }, { 3, 4 } };
+```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
 
 # Lists
 
@@ -1168,6 +1209,81 @@ foreach (KeyValuePair<string, int> user in users.OrderBy(user => user.Value))
 |  ```ToCharArray()```	|  firstname.ToCharArray() |Converts string into char array.|
 | ```Trim()```	|   firstname.Trim() |It removes extra whitespaces from beginning and ending of string.|
  
+
+### Some examples of Common String Methods
+
+```c#
+    //To concatenate between strings, use the plus operator:
+    string firstName = "Erin";
+    string lastName = "Roger";
+    string fullName = firstName + " " + lastName;
+
+    //To add one string to another, use the += operator:
+    string secondLastName = "Green";
+    string fullName += secondLastName;
+    
+    //ToString function
+     //It converts an object to its string representation so that it is suitable for display
+     Object.ToString();
+    
+    //String formatting
+    //Each additional argument to the function can be referred to in the string using the brackets operator with the index number.
+    String.Format(String format, Object arg0);
+     format - A composite format string that includes one or more format items 
+     arg0 - The first or only object to format
+
+    //Substring
+     //Returns a part of the string, beginning from the index specified as the argument. Substring also accepts a maximum length for the substring
+     String.Substring(beginAt);
+     String.Substring(beginAt, maximum);
+    
+    //Replace
+    string newStr = oldStr.Replace("old","new");
+
+    //IndexOf
+    //Finds the first ocurrence of a string in a larger string
+    //Returns -1 if the string is not found
+    String.IndexOf(val, start, num)
+    val - string to search for
+    start - where to begin in string
+
+    //LastIndexOf
+    //Search from end of string
+
+    //Split
+     //Split is used to break delimited string into substrings
+     String.Split(Char[]);
+
+    //ToCharArray
+    
+     //Places selected characteres in a string in a char array
+     String str = "AaBbCcDd";
+    
+     //create array of 8 vowels
+     var chars = str.ToCharArray();
+    
+     //create array of 'B' and 'C'
+     var chars = str.ToCharArray(2,2);
+
+```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
+# StringBuilder
+
+```c#
+StringBuilder sb = new StringBuilder();
+StringBuilder sb = new StringBuilder(myString);
+StringBuilder sb = new StringBuilder(myString, capacity);
+
+myString - Initial value of StringBuilder object
+capacity - Initial size of buffer
+```
+
 <br>
 
 [back to top](#Index)<br>
@@ -1335,6 +1451,96 @@ var path = @"C:\Users\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
             new { Id = 3, FirstName = "C++", LastName = "Developer" }
     };    
 ```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
+# DateTime
+
+```c#
+DateTime(year, month, day)
+    DateTime(year, month, day, hour, minute, second)
+
+    DateTime newYear = DateTime.Parse("1/1/2018"):
+    DateTime currentDate = DateTime.Now;
+    DateTime nextYear = DateTime.AddYears(1);   
+```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
+# Delegates
+
+* A delegate is a reference type variable that holds the reference to a method. The reference can be changed at runtime.
+
+### Declaring delegates
+
+* Delegate declaration determines the methods that can be referenced by the delegate.
+
+```c#
+delegate <return type> <delegate-name> <parameter list>
+```
+
+### Instantiating delegates
+
+* When creating a delegate, the argument passed to the new expression is written similar to a method call, but without the arguments to the method
+
+```c#
+ public delegate void printString(string s);
+ printString ps1 = new printString(WriteToScreen);
+ printString ps2 = new printString(WriteToFile);
+```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
+# Events
+
+### Declaring events
+
+* To declare an event inside a class, first a delegate type for the event must be declared.
+
+```c#
+ public delegate string MyDelegate(string str);
+```
+
+* The event itself is declared by using the event keyword
+
+```c#
+ event MyDelegate MyEvent;
+```
+
+### Commonly used Control Events
+| Event         | Delegate      |
+|---            |---            |
+| Click, MouseEnter, DoubleClick, MouseLeave | ```EventHandler( object sender, EventArgs e)``` |
+| MouseDown, Mouseup, MouseMove              | ```MouseEventHandler(object sender, MouseEventArgs e)``` |
+| KeyUp, KeyDown                             | ```KeyEventHandler(object sndr, KeyEventArgs e)``` |                                                 
+| KeyPress                                   | ```KeyPressEventHandler(object sender, KeyPressEventArgs e)``` |
+
+#### Extras
+
+
+| MouseEventHandler |
+|---                           |
+| e.X, e.Y – x and y coordinates |
+| e.Button – MouseButton.Left, Middle, Right |
+
+| KeyEventHandler |
+|---                           |
+| e.Handled – Indicates whether event is handled. |
+| e.KeyCode – Keys enumeration, e.g., Keys.V |
+| e.Modifiers – Indicates if Alt, Ctrl, or Shift key. |
+
 
 <br>
 
