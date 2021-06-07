@@ -47,6 +47,7 @@
 [Read File](#Read-File)<br>
 [Write File](#Write-File)<br>
 [Create a File](#Create-File)<br>
+[Anonymous Type](#Anonymous-Type)<br>
 
 
 ## Comments
@@ -1274,7 +1275,7 @@ using (var sr = File.OpenText(path))
 
 # Write File
 ```c#
-var path = @"C:\Users\escap\Source\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
+var path = @"C:\Users\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
 
             if (!File.Exists(path))
                 using (var sw = File.CreateText(path))
@@ -1285,4 +1286,58 @@ var path = @"C:\Users\escap\Source\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
 ```
 
 # Create File
+```c#
+var path = @"C:\Users\Repos\ConsoleApp1\ConsoleApp1\Main.cs";
+           if (!File.Exists(path))
+           {
+              using (FileStream fs = File.Create(path))
+           }
+```
 
+<br>
+
+[back to top](#Index)<br>
+
+<br>
+
+# Anonymous Type
+
+* An anonymous type is a type (class) without any name that can contain public read-only properties only.
+* We cannot cannot change the values of properties as they are read-only.
+
+```c#
+ var student = new { Id = 1, FirstName = "C#", LastName = "Coder" };
+ Console.WriteLine(student.Id); //output: 1
+ Console.WriteLine(student.FirstName); //output: C#
+ Console.WriteLine(student.LastName); //output: Coder
+
+ student.Id = 2;//Error: cannot chage value
+ student.FirstName = "Java";//Error: cannot chage value       
+```
+
+### Nested Anonymous Type
+
+```c#
+ var student = new { 
+                    Id = 1, 
+                    FirstName = "C#", 
+                    LastName = "Coder",
+                    Address = new { Id = 1, City = "NYC", Country = "USA" }
+                };      
+```
+
+### Array of Anonymous Types
+
+```c#
+ var students = new[] {
+            new { Id = 1, FirstName = "C#", LastName = "Coder" },
+            new { Id = 2, FirstName = "Java", LastName = "Programmer" },
+            new { Id = 3, FirstName = "C++", LastName = "Developer" }
+    };    
+```
+
+<br>
+
+[back to top](#Index)<br>
+
+<br>
